@@ -5,7 +5,7 @@ firebase.auth().onAuthStateChanged((user) => {
         console.log(user.uid)
         window.location.replace("./html/painel.html");
     } else {
-        window.location.replace("./html/painel.html");
+       
     }
 });
 
@@ -15,7 +15,7 @@ const logar = () => {
     const password = document.getElementById("password").value
     firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
             var user = userCredential.user;
-            window.location.replace("http://kestplus.ga/painel");
+            window.location.replace("https://kestplus.ga/painel");
             console.log("logado com sucesso!!" + user)
         })
         .catch((error) => {

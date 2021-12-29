@@ -1,7 +1,7 @@
 const toaste = (titulo, texto, tipo) => {
     switch (tipo) {
         case 'sucesso':
-            toaste.options = {
+            toastr.options = {
                 "closeButton": false,
                 "debug": false,
                 "newestOnTop": false,
@@ -18,10 +18,10 @@ const toaste = (titulo, texto, tipo) => {
                 "showMethod": "fadeIn",
                 "hideMethod": "fadeOut"
             }
-            toaste["success"](titulo, texto)
+            toastr["success"](titulo, texto)
             break;
         case 'erro':
-            toaste.options = {
+            toastr.options = {
                 "closeButton": false,
                 "debug": false,
                 "newestOnTop": false,
@@ -38,10 +38,10 @@ const toaste = (titulo, texto, tipo) => {
                 "showMethod": "fadeIn",
                 "hideMethod": "fadeOut"
             }
-            toaste["error"](titulo, texto)
+            toastr["error"](titulo, texto)
             break;
         case 'aviso':
-            toaste.options = {
+            toastr.options = {
                 "closeButton": false,
                 "debug": false,
                 "newestOnTop": false,
@@ -58,10 +58,10 @@ const toaste = (titulo, texto, tipo) => {
                 "showMethod": "fadeIn",
                 "hideMethod": "fadeOut"
             }
-            toaste["warning"](titulo, texto)
+            toastr["warning"](titulo, texto)
             break;
         case 'infor':
-            toaste.options = {
+            toastr.options = {
                 "closeButton": false,
                 "debug": false,
                 "newestOnTop": false,
@@ -78,7 +78,7 @@ const toaste = (titulo, texto, tipo) => {
                 "showMethod": "fadeIn",
                 "hideMethod": "fadeOut"
             }
-            toaste["info"](titulo, texto)
+            toastr["info"](titulo, texto)
             break;
     }
 }
