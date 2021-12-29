@@ -94,14 +94,20 @@
                 <center>
                     <div class="shadow p-3 mb-5 bg-white rounded w-60 ">
                         <center>
+						<img src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo-13.png" alt="some text" width="70" height="70">
+                                    <br>
+                                    <br>
+                                    <h5>Conta completa
+                                    </h5>
+                                     <br>
                             
 							<div class="input-group mb-3">
                                  <div class="input-group-prepend">
-                                     <button class="btn btn-outline-secondary bg-success text-white" type="button">-</button>
-                            </div>
-                                    <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                     <button class="btn btn-outline-secondary bg-success text-white" type="button" onclick="dim_numero()">-</button>
+                                         </div>
+                                           <input value="1" id="input_numero" type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
 									      <div class="input-group-append">
-                                           <button class="btn btn-outline-secondary bg-success text-white" type="button">+</button>
+                                           <button  class="btn btn-outline-secondary bg-success text-white" type="button" onclick="add_numero()">+</button>
                                               </div>
                                      </div>
 							
@@ -122,6 +128,7 @@
         <script src="../js/database/firebase.js"></script>
         <script src="../js/utils/saldo.js"></script>
         <script src="../js/utils/painel.js"></script>
+		<script src="../js/utils/conta_completa_ig.js"></script>
     </body>
 
 </html>
