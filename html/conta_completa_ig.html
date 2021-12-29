@@ -99,17 +99,23 @@
                                     <br>
                                     <h5>Conta completa
                                     </h5>
+									<br>
+									<h6 class="estoque"></h6>
                                      <br>
                             
 							<div class="input-group mb-3">
                                  <div class="input-group-prepend">
                                      <button class="btn btn-outline-secondary bg-success text-white" type="button" onclick="dim_numero()">-</button>
                                          </div>
-                                           <input value="1" id="input_numero" type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                           <input value="0" id="input_numero" type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
 									      <div class="input-group-append">
                                            <button  class="btn btn-outline-secondary bg-success text-white" type="button" onclick="add_numero()">+</button>
                                               </div>
                                      </div>
+									 <br>
+									 <br>
+									 
+									 <button type="button" class="btn bg-success text-white" onclick="comprar_conta()">Comprar</button>
 							
 							
 							
@@ -129,6 +135,7 @@
         <script src="../js/utils/saldo.js"></script>
         <script src="../js/utils/painel.js"></script>
 		<script src="../js/utils/conta_completa_ig.js"></script>
+		
     </body>
 
 </html>
