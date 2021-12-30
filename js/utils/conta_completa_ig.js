@@ -1,28 +1,30 @@
- let saldo = ""
-
+let valor_saldo = "";
+let numero_estoque ="";
+let uid="";
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        let uid = user.uid;
-        firebase.database().ref('usuario/' + uid).once('value', (sanpshot) => {
-            saldo = parseFloat(sanpshot.val().valor);
-            document.querySelector('.valor').innerText = "R$ " + (saldo).toLocaleString('pt-BR', {
+         uid = user.uid;
+        let atualizar_saldo  = ()=>{  firebase.database().ref('usuario/' + uid).once('value', (sanpshot) => {
+        let saldo = parseFloat(sanpshot.val().valor);
+		valor_saldo = sanpshot.val().valor;
+		   
+            document.querySelector('.saldo').innerText = "R$ " + (saldo).toLocaleString('pt-BR', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             })
         })
-        window.setInterval(atualizar_saldo, 3000);
-        const atualizar_saldo = () => {
-            saldo = parseFloat(sanpshot.val().valor);
-            document.querySelector('.valor').innerText = "R$ " + (saldo).toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            })
-        }
-    } else {
+		
+		
+		
+	  }
+	  
+	  window.setInterval(atualizar_saldo,1000)
+        
+    } else  {
         window.location.replace("https://kestplus.ga");
     }
 });
-let numero_estoque ="4";
+
 
 window.setInterval(numero_contas, 3000);
 
@@ -81,21 +83,26 @@ function numero_contas(){
 
 function comprar_conta(){
 	
+	
+	
 	let numero = document.getElementById("input_numero").value
 	
-	let valor = 25* numero ;
-	console.log(valor)
+	let valor = 2* numero ;
 	
-	let saldo = 50;
-	console.log("saldo"+" "+saldo)
 	
-	if(saldo>=valor){
+
+	
+	if(valor_saldo>=valor){
 		
-		alert("conta comprada");
+		toastr.success('Compra realizada com sucesso');
+		
+		let compra = valor_saldo - valor;
+		
+		descontar_saldo(compra);
 		
 	}else{
 		
-		alert("saldo insuficiente");
+	toastr.info('Saldo insuficiente')
 		
 		
 	}
@@ -111,7 +118,16 @@ function comprar_conta(){
 
 
 
-function descontar_saldo(){
+function descontar_saldo(descontar){
+	
+const atualizar={
+	valor: descontar
+	
+}
+
+
+
+	firebase.database().ref('usuario/' + uid).update(atualizar);
 	
 	
 	
@@ -123,7 +139,7 @@ function descontar_saldo(){
 
 
 
-function saldo(saldos){
-  
 
-}
+
+
+
