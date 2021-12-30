@@ -19,7 +19,7 @@ firebase.auth().onAuthStateChanged((user) => {
             })
         }
     } else {
-        window.location.replace("https://localhost:8081");
+        window.location.replace("https://kestplus.ga");
     }
 });
 let numero_estoque ="4";
