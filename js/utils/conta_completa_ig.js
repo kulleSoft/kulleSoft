@@ -94,7 +94,7 @@ function comprar_conta(){
 	
 	if(valor_saldo>=valor){
 		
-		toastr.success('Compra realizada com sucesso');
+		alert('Compra realizada com sucesso');
 		
 		let compra = valor_saldo - valor;
 		
@@ -102,7 +102,7 @@ function comprar_conta(){
 		
 	}else{
 		
-	toastr.info('Saldo insuficiente')
+	alert('Saldo insuficiente')
 		
 		
 	}
