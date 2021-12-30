@@ -1,26 +1,24 @@
- let saldo ="";
- firebase.auth().onAuthStateChanged((user) => {
-     if (user) {
-         var uid = user.uid;
-         firebase.database().ref('usuario/' + uid).once('value', (sanpshot) => {
-			 saldo=sanpshot.val().valor;
-             console.log(sanpshot.val().valor)
-                 // document.querySelector('.admin_name').innerText= sanpshot.val().username
-             document.querySelector('.valor').innerText = "R$" + " " + sanpshot.val().valor
-         })
-         window.setInterval(atualizar_saldo, 3000);
+let saldo = ""
 
-         function atualizar_saldo() {
-             firebase.database().ref('usuario/' + uid).once('value', (sanpshot) => {
-                 console.log(sanpshot.val().valor)
-                     // document.querySelector('.admin_name').innerText= sanpshot.val().username
-                document.querySelector('.valor').innerText = "R$" + " " + sanpshot.val().valor
-				
-				
-             })
-		
-         }
-     } else {
-        window.location.replace("https://kestplus.ga/");
-     }
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        let uid = user.uid;
+        firebase.database().ref('usuario/' + uid).once('value', (sanpshot) => {
+            saldo = parseFloat(sanpshot.val().valor);
+            document.querySelector('.valor').innerText = "R$ " + (saldo).toLocaleString('pt-BR', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })
+        })
+        window.setInterval(atualizar_saldo, 3000);
+        const atualizar_saldo = () => {
+            saldo = parseFloat(sanpshot.val().valor);
+            document.querySelector('.valor').innerText = "R$ " + (saldo).toLocaleString('pt-BR', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })
+        }
+    } else {
+        window.location.replace("https://localhost:8081");
+    }
 });
