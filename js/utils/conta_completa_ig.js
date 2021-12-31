@@ -33,13 +33,13 @@ window.setInterval(numero_contas, 3000);
 function add_numero(){
 	
 let numero = document.getElementById("input_numero").value
-numero = ++numero;
 
-if(numero >= 30){
-	console.log("limite atingido");
+
+if(numero >= numero_estoque){
+	alert("limite atingido");
 	
 }else{
-	
+	numero = ++numero;
 	document.getElementById("input_numero").value=numero;	
 	
 	}
@@ -51,13 +51,15 @@ if(numero >= 30){
 function dim_numero(){
 	
 let numero = document.getElementById("input_numero").value
-numero = --numero;
+
 
 if(numero <= 0){
 	document.getElementById("input_numero").value="0";
+	numero ="0";
+	
 	
 }else{
-	
+	numero = --numero;
 	document.getElementById("input_numero").value=numero;	
 	
 	}
@@ -78,8 +80,8 @@ function numero_contas(){
 				 
 				  }else{
 					  
-					   numero_estoque= sanpshot.val().contas_completas.length
-					   document.querySelector(".estoque").innerText="CONTAS DISPONIVEIS:"+" "+sanpshot.val().contas_completas.length
+					   numero_estoque= sanpshot.val().contas_completas.length-1;
+					   document.querySelector(".estoque").innerText="CONTAS DISPONIVEIS:"+" "+numero_estoque
 					  
 					  
 				  }
@@ -110,10 +112,11 @@ function comprar_conta(){
 		alert('Compra realizada com sucesso');
 		
 		let compra = valor_saldo - valor;
+		numero = parseInt(numero);
 		
 		selecionar_conta(numero)
-		
 		descontar_saldo(compra);
+		
 		
 	}else{
 		
@@ -156,16 +159,17 @@ function selecionar_conta(quantidade){
 	firebase.database().ref('contas/contas_completas/').limitToLast(quantidade).once('value', (sanpshot) => {
                
 			  
-       sanpshot.forEach((intem)=>{
+       sanpshot.forEach((intem,posicao,array)=>{
 				   
 				   
 				
+				    
+					enviar_contas(intem.val().nome,intem.val().senha)
+				    deletar_conta(intem.key)
+					
+					
+					
 				
-                 
-				 
-				 enviar_contas(intem.val().nome,intem.val().senha)
-				 deletar_conta(intem.key)
-				 
                     
                   })
 
@@ -204,7 +208,7 @@ function enviar_contas(nome,senha){
 	
 }
 
-let aleatorio =  Math.floor(Math.random()*100);
+let aleatorio =  Math.floor(Math.random()*1000);
 
 	firebase.database().ref('usuario/' + uid+"/contas_compradas/"+aleatorio).set(atualizar);
 	
