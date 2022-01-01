@@ -29,6 +29,17 @@ a {
     text-decoration: none
 }
 
+
+.rolagem{
+	
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+
+
+
+
 .header {
     width: 100%;
     height: var(--header-height);
