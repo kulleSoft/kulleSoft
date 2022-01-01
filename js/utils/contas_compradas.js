@@ -28,7 +28,7 @@ const tabela_contas =() =>{
                    let newRow = tableRef.insertRow(1);
                    let celula1 = newRow.insertCell(0);
                    let celula2 = newRow.insertCell(1);
-				   let celula_button = newRow.insertCell(2);
+				   /* let celula_button = newRow.insertCell(2); */
                    let texto1 = document.createElement('button')
 				  
 texto1.innerHTML = item.val().nome;
@@ -59,7 +59,7 @@ var tempInput = document.createElement("input");
 });
 celula2.appendChild(texto2)
 
-let criar_button = document.createElement('button')
+/* let criar_button = document.createElement('button')
 				  
 criar_button.innerHTML = "Detalhe";
 criar_button.className+="btn btn-danger detalhe"
@@ -68,27 +68,11 @@ criar_button.addEventListener("click", function () {
 });
 celula_button.appendChild(criar_button)
                    
-                   
+                    */
 				   
 
-				
-                    
-                  })
+				 })
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-        
         })
 	
-	
-	
-	
-	
-}
+	}
