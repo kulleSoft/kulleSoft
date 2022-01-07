@@ -156,7 +156,7 @@ const atualizar={
 function selecionar_conta(quantidade){
 	
 	
-	firebase.database().ref('contas/contas_completas/').limitToLast(quantidade).once('value', (sanpshot) => {
+	firebase.database().ref('contas/contas_completas_instagram/').limitToLast(quantidade).once('value', (sanpshot) => {
                
 			  
        sanpshot.forEach((intem,posicao,array)=>{

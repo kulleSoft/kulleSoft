@@ -108,25 +108,44 @@
         </div>
         <!--Container Main start-->
         <div class="height-4 bg-white m-">
-            <h4>INICIO</h4>
+		<center>
+                    <div class="shadow p-3 mb-5 bg-white rounded w-60 ">
+                        <center>
+                        <h4>SUA CARTEIRA:</h4>
+                         <h3><strong class="saldo">R$ 0,00</strong></h3>
+                         </center>
+                         </center>
+            
             <p>
                 <center>
                     <div class="shadow p-3 mb-5 bg-white rounded w-60 ">
                         <center>
-                            <h4>SALDO ATUAL:</h4>
-                            <h3><strong class="valor">R$ 0,00</strong></h3>
+						<h5><strong>TIPO DA CHAVE PIX</strong></h5>
+						<select class="form-select" aria-label="Default select example">
+                        <option selected>Selecionar tipo</option>
+                        <option value="1">Cpf</option>
+                        <option value="2">Email</option>
+                        <option value="3">Celular</option>
+						<option value="3">Aleatorio</option>
+                        </select>
+						<p>
+						 <div class="mb-3">
+                       <input type="text" class="form-control chavepix" id="exampleFormControlInput1" placeholder="Sua chave">
+                         </div>
+						 <p>
+						 <div class="form-outline">
+                         <input type="number" id="typeNumber" class="form-control valor_saque" placeholder="Valor" />
+                         
+                         </div>
+						 <p>
+				         <p>
+						<button type="button" id="btn_saque" class="btn btn-primary">SOLICITAR SAQUE</button>
+                            
                         </center>
                 </center>
                 <p>
                     </div>
-                    <div class="shadow p-3 mb-5 bg-success rounded w-60 ">
-                        <h3 class="text-white"><strong>NOTICIAS E AVISOS</strong></h3>
-                        <br>
-                        <br>
-                        <h5 class="text-white">🤳 | 60 CONTAS Completas do TikTok com acesso ao e-mail adicionadas no site, cumprindo com todos os requisitos da Dizu e Ganhar no Insta!!
-                        </h5>
-                        <br>
-                    </div>
+                    
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
@@ -136,6 +155,7 @@
         <script src="../js/database/firebase.js"></script>
         <script src="../js/utils/saldo.js"></script>
         <script src="../js/utils/painel.js"></script>
+		 <script src="../js/utils/saques.js"></script>
     </body>
 
 </html>

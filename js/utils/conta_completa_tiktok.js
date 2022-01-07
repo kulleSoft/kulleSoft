@@ -1,3 +1,63 @@
+let valor_saldo = "";
+let numero_estoque ="";
+let uid="";
+
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+         uid = user.uid;
+        let atualizar_saldo  = ()=>{  firebase.database().ref('usuario/' + uid).once('value', (sanpshot) => {
+        let saldo = parseFloat(sanpshot.val().valor);
+		valor_saldo = sanpshot.val().valor;
+		   
+            document.querySelector('.saldo').innerText = "R$ " + (saldo).toLocaleString('pt-BR', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })
+        })
+		
+		
+		
+	  }
+	  
+	  window.setInterval(atualizar_saldo,1000)
+        
+    } else  {
+        window.location.replace("https://kestplus.ga");
+    }
+});
+
+
+window.setInterval(numero_contas, 3000);
+
+
+function add_numero(){
+	
+let numero = document.getElementById("input_numero").value
+
+
+if(numero >= numero_estoque){
+	alert("limite atingido");
+	
+}else{
+	numero = ++numero;
+	document.getElementById("input_numero").value=numero;	
+	
+	}
+
+}
+
+
+
+function dim_numero(){
+	
+let numero = document.getElementById("input_numero").value
+
+
+if(numero <= 0){
+	document.getElementById("input_numero").value="0";
+	numero ="0";
+	
+	
 }else{
 	numero = --numero;
 	document.getElementById("input_numero").value=numero;	
@@ -96,7 +156,7 @@ const atualizar={
 function selecionar_conta(quantidade){
 	
 	
-	firebase.database().ref('contas/contas_completas/').limitToLast(quantidade).once('value', (sanpshot) => {
+	firebase.database().ref('contas/contas_completas_tiktok/').limitToLast(quantidade).once('value', (sanpshot) => {
                
 			  
        sanpshot.forEach((intem,posicao,array)=>{

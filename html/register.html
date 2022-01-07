@@ -15,11 +15,11 @@
 			<div class="row justify-content-sm-center h-100">
 				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
 					<div class="text-center my-5">
-						<img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo" width="100">
+						<img src="../img/kestplus.png" alt="logo" width="100">
 					</div>
 					<div class="card shadow-lg">
 						<div class="card-body p-5">
-							<h1 class="fs-4 card-title fw-bold mb-4">Registra</h1>
+							<h1 class="fs-4 card-title fw-bold mb-4">Registrar</h1>
 							<form method="POST" class="needs-validation" novalidate="" autocomplete="off">
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="name">Nome</label>
@@ -45,13 +45,24 @@
 								    	Senha requerida
 							    	</div>
 								</div>
+								
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="number">Whatsapp</label>
+									<input id="whatsapp" type="text" class="form-control" name="password" required>
+								 <!--    <div class="invalid-feedback">
+								    	Senha requerida
+							    	</div>  -->
+								</div>
 
-								<p class="form-text text-muted mb-3">
-									Ao se registrar, você concorda com nossos termos e condições.
-								</p>
-
+								
+                                 
 								<div class=" align-items-center d-flex">
-									
+									<div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                      <label class="form-check-label" for="flexCheckDefault">
+   Ao se registrar, você concorda com nossos termos e condições.
+                                     </label>
+                                   </div>
                                     
 										
 								</div>
@@ -89,6 +100,7 @@
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
     const username = document.getElementById("name").value
+	const whatsapp = document.getElementById("whatsapp").value
  
     
     
@@ -104,7 +116,8 @@
 database.ref('usuario/' + user.uid).set({
     username: username,
     email: email,
-    valor:"0"
+    valor:"0",
+	whatsapp: whatsapp
     
     })
 
