@@ -48,6 +48,9 @@ document.getElementById("btn_saque").addEventListener('click', function(){
 		
 	}else{
 		if(saque_valor>=20){
+			
+		if(valor_saldo>=saque_valor){
+		
 		if (valor_saldo>=20){
 		
 		
@@ -68,7 +71,14 @@ document.getElementById("btn_saque").addEventListener('click', function(){
 		texto_saque.innerText="O valor minimo para saque é de R$ 20,00. O valor que você tem disponivel é de R$ "+valor_saldo+"";
 		
 		
-	}
+		} }else{
+			
+			texto_saque.classList.toggle('text-warning')
+		    texto_saque.innerText="Saldo insuficiente.";
+			
+			
+			
+		}
 	
 		}else{
 			
