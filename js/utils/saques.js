@@ -33,9 +33,22 @@ document.getElementById("btn_saque").addEventListener('click', function(){
 	let seletor = document.querySelector('.form-select');
 	let tipo_chave = seletor.options[seletor.selectedIndex].text
 	let chave_pix = document.querySelector('.chavepix').value
+	let texto_saque = document.querySelector('.texto_saque');
+	texto_saque.innerText="";
+	texto_saque.classList.remove('text-danger')
+	texto_saque.classList.remove('text-success')
+	texto_saque.classList.remove('text-warning')
 	
-	
-	if (valor_saldo>=saque_valor){
+	if(saque_valor==""|| chave_pix==""){
+		
+		
+		texto_saque.classList.toggle('text-warning')
+		texto_saque.innerText="Preencha todos os campos.";
+		
+		
+	}else{
+		if(saque_valor>=20){
+		if (valor_saldo>=20){
 		
 		
 		const compra =  valor_saldo - saque_valor
@@ -43,16 +56,34 @@ document.getElementById("btn_saque").addEventListener('click', function(){
 		descontar_saldo(compra)
 		adicionar_saque(tipo_chave,chave_pix,saque_valor)
 		
-		alert("SAQUE REALIZADO COM SUCESSO")
 		
+		texto_saque.classList.toggle('text-success')
+		texto_saque.innerText="Saque no valor de "+saque_valor+" reais realizado com sucesso.";
 		
+
 		
 	}else{
 		
-		alert("sem saldo")
+		texto_saque.classList.toggle('text-danger')
+		texto_saque.innerText="O valor minimo para saque é de R$ 20,00. O valor que você tem disponivel é de R$ "+valor_saldo+"";
 		
 		
 	}
+	
+		}else{
+			
+			
+			
+		texto_saque.classList.toggle('text-danger')
+		texto_saque.innerText="O valor minimo para saque é de R$ 20,00.";
+			
+			
+		}
+		
+		
+		
+	}
+	
 	
 	
 	
