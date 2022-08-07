@@ -15,7 +15,7 @@ const logar = () => {
     const password = document.getElementById("password").value
     firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
             var user = userCredential.user;
-            window.location.replace("https://kestplus.ga/painel");
+            window.location.replace("./html/painel.html");
             console.log("logado com sucesso!!" + user)
         })
         .catch((error) => {
