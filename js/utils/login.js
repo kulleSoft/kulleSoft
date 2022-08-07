@@ -3,7 +3,7 @@ const user = firebase.auth().currentUser;
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         console.log(user.uid)
-        window.location.replace("./html/painel.html");
+        window.location.replace("./painel/painel.html");
     } else {
        
     }
@@ -15,7 +15,7 @@ const logar = () => {
     const password = document.getElementById("password").value
     firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
             var user = userCredential.user;
-            window.location.replace("./html/painel.html");
+            window.location.replace("./painel/painel.html");
             console.log("logado com sucesso!!" + user)
         })
         .catch((error) => {
