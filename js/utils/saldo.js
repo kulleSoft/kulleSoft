@@ -19,6 +19,6 @@ firebase.auth().onAuthStateChanged((user) => {
             })
         }
     } else {
-        window.location.replace("https://kullesot.com/painel/login");
+        window.location.replace("https://kullesoft.com/painel/login");
     }
 });
