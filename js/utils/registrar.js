@@ -1,6 +1,6 @@
 
     
-    var database = firebase.database()
+   // var database = firebase.database();
     
 
     //CRIAR COM EMAIL E SENHA
@@ -22,18 +22,8 @@
   .then((userCredential) => {
     const user = userCredential.user;
     console.log(user.uid)
-
-database.ref('DIZU_SERVE/Contas' + user.uid).set({
-    nome: username,
-    email: email,
-    valor:"0",
-	uid: user.uid,
-	dias:"0",
-	tempo: ms,
-	whatsapp: whatsapp
-    
-    })
-	database.ref('GNI_SERVE/contas' + user.uid).set({
+	 
+ firebase.database().ref('GNI_SERVER/Contas/' + user.uid).set({
     nome: username,
     email: email,
     valor:"0",
@@ -42,10 +32,20 @@ database.ref('DIZU_SERVE/Contas' + user.uid).set({
 	tempo: ms,
 	whatsapp: whatsapp
     
-    })
+    });
+	 firebase.database().ref('DIZU_SERVER/Contas/' + user.uid).set({
+    nome: username,
+    email: email,
+    valor:"0",
+	uid: user.uid,
+	dias:"0",
+	tempo: ms,
+	whatsapp: whatsapp
+    
+    }); 
 
 
-window.location.replace("https://kullesoft.com/painel/painel");
+window.location.replace("https://kullesot.com/painel/login");
 /* firebase.auth().currentUser.sendEmailVerification()
   .then(() => {
     console.log("aguardando confirmação")
@@ -61,7 +61,9 @@ window.location.replace("https://kullesoft.com/painel/painel");
     // ..
   });
 
-    }
+    
+	
+	}
 
     /*
     firebase.database().ref(database, 'usuario/' + user.uid),{
