@@ -102,7 +102,8 @@
     const username = document.getElementById("name").value
 	const whatsapp = document.getElementById("whatsapp").value
  
-    
+    var today = new Date();
+	var ms = today.getMilliseconds();
     
 
 
@@ -113,19 +114,33 @@
     const user = userCredential.user;
     console.log(user.uid)
 
-database.ref('usuario/' + user.uid).set({
-    username: username,
+database.ref('DIZU_SERVE/Contas' + user.uid).set({
+    nome: username,
     email: email,
     valor:"0",
+	uid: user.uid,
+	dias:"0",
+	tempo: ms,
+	whatsapp: whatsapp
+    
+    })
+	database.ref('GNI_SERVE/contas' + user.uid).set({
+    nome: username,
+    email: email,
+    valor:"0",
+	uid: user.uid,
+	dias:"10000000000000000000000000000000000",
+	tempo: ms,
 	whatsapp: whatsapp
     
     })
 
+
 //window.location.replace("https://kestplus.ga/painel");
-firebase.auth().currentUser.sendEmailVerification()
+/* firebase.auth().currentUser.sendEmailVerification()
   .then(() => {
     console.log("aguardando confirmação")
-  });
+  }); */
 
    
      
