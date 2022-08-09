@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyDaLRm7hFox11uU9374CVaSFanHsUwjIqQ",
-  authDomain: "gnibot-90050.firebaseapp.com",
-  databaseURL: "https://gnibot-90050-default-rtdb.firebaseio.com",
-  projectId: "gnibot-90050",
-  storageBucket: "gnibot-90050.appspot.com",
-  messagingSenderId: "330244485531",
-  appId: "1:330244485531:web:86a743eb922f88ebcaf13e"
+  apiKey: "AIzaSyDIAhQKsPSZaVOI0qP1Gi2cmdt6aX6KfSE",
+  authDomain: "kullesoft-2c9fa.firebaseapp.com",
+  databaseURL: "https://kullesoft-2c9fa-default-rtdb.firebaseio.com",
+  projectId: "kullesoft-2c9fa",
+  storageBucket: "kullesoft-2c9fa.appspot.com",
+  messagingSenderId: "872638939319",
+  appId: "1:872638939319:web:2d6242d0a9b6f818634d32"
 };
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
